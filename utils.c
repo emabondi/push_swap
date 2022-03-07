@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:11:48 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/04 17:19:32 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/07 18:58:32 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,19 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (res * s);
+}
+
+void	ft_swap(int *num1, int *num2)
+{
+	int	temp;
+
+	temp = *num1;
+	*num1 = *num2;
+	*num2 = temp;
+}
+
+void	ft_check_malloc(void *ptr)
+{
+	if (ptr == NULL)
+		exit (1);
 }

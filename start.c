@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:28 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/04 20:11:47 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/07 19:27:45 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,82 @@ int	main(int argc, char *argv[])
 		return (0);
 	box.len_a = argc - 1;
 	box.len_b = 0;
-	if(!check_stacks(&box, argv))
+	box.stack_a = (int *) malloc (sizeof(int) * box.len_a);
+	ft_check_malloc(box.stack_a);
+	box.stack_b = (int *) malloc (sizeof(int) * box.len_a);
+	ft_check_malloc(box.stack_b);
+	if(!fill_stack_a(&box, argv))
 	{
 		write (1, "ERROR\n", 6);
 		return (0);
 	}
-	box.stack_a = (int *) malloc (sizeof(int) * box.len_a);
-	box.stack_b = (int *) malloc (sizeof(int) * box.len_a);
-
+	renumber_stack(&box);
+	i = 0;
+	while (i < box.len_a)
+	{
+		printf("%d ", box.stack_a[i]);
+		i++;
+	}
 }
 
-int	check_stacks(ps_struct *box, char *argv[])
+void	renumber_stack(ps_struct *box)
+{
+	int *temp;
+	int	i;
+	int	j;
+
+	temp = (int *) malloc (sizeof(int) * box->len_a);
+	ft_check_malloc(temp);
+	i = 0;
+	while (i < box->len_a)
+	{
+		temp[i] = box->stack_a[i];
+		i++;
+	}
+	while (i > 0)
+	{
+		j = 0;
+		while (j < box->len_a - 1)
+		{
+			if (temp[j] > temp[j + 1])
+				ft_swap(&temp[j], &temp[j + 1]);
+			j++;
+		}
+		i--;
+	}
+	renumber_stack_a(box, temp);
+	free (temp);
+}
+
+int	fill_stack_a(ps_struct *box, char *argv[])
+{
+	int	i;
+
+	i = 0;
+	while(i < box->len_a)
+	{
+		if (!ft_check(argv[i + 1]))
+			return (0);
+		box->stack_a[i] = ft_atoi(argv[i + 1]);
+		i++;
+	}
+	if(!check_stacks(box))
+		return (0);
+	return (1);
+}
+
+int	check_stacks(ps_struct *box)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (i <= box->len_a)
+	i = 0;
+	while (i < box->len_a)
 	{
-		if(!ft_check(argv[i]))
-			return (0);
 		j = i + 1;
-		while (j <= box->len_a)
+		while (j < box->len_a)
 		{
-			if (*argv[i] == *argv[j])
+			if (box->stack_a[i] == box->stack_a[j])
 				return (0);
 			j++;
 		}
