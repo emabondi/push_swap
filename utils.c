@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:11:48 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/07 18:58:32 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/08 20:26:42 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,18 @@ void	ft_check_malloc(void *ptr)
 {
 	if (ptr == NULL)
 		exit (1);
+}
+
+int	minor_in_a(ps_struct *box)
+{
+	int i;
+
+	i = 0;
+	while(i < box->len_a)
+	{
+		if (box->stack_a[i] <= box->half)
+			return (1);
+		i++;
+	}
+	return (0);
 }

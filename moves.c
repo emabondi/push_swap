@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:15:37 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/08 17:04:28 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/08 20:40:06 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,35 @@ void	pa(ps_struct *box)
 		i--;		
 	}
 	box->stack_a[0] = temp;
+}
+
+void	ra(ps_struct *box)
+{
+	int temp;
+	int	i;
+
+	temp = box->stack_a[0];
+	i = 0;
+	while (i < box->len_a - 1)
+	{
+		box->stack_a[i] = box->stack_a[i + 1];
+		i++;
+	}
+	box->stack_a[i] = temp;
+}
+
+
+void	rb(ps_struct *box)
+{
+	int temp;
+	int	i;
+
+	temp = box->stack_b[0];
+	i = 0;
+	while (i < box->len_b - 1)
+	{
+		box->stack_b[i] = box->stack_b[i + 1];
+		i++;
+	}
+	box->stack_b[i] = temp;
 }

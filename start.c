@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:28 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/08 17:07:39 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/08 20:31:28 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	renumber_stack(&box);
+	divide_stack(&box);
 	i = 0;
 	while (i < box.len_a)
 	{
