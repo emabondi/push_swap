@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:59 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/07 19:10:18 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/08 17:04:36 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void	renumber_stack(ps_struct *box);
 void	ft_swap(int *num1, int *num2);
 void	ft_check_malloc(void *ptr);
 void	renumber_stack_a(ps_struct *box, int *temp);
+void	pb(ps_struct *box);
+void	pa(ps_struct *box);
 
 #endif

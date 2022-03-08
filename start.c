@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:28 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/07 19:27:45 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/08 17:07:39 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ int	main(int argc, char *argv[])
 	while (i < box.len_a)
 	{
 		printf("%d ", box.stack_a[i]);
+		i++;
+	}
+	i = 0;
+	printf ("\n");
+	while (i < box.len_b)
+	{
+		printf("%d ", box.stack_b[i]);
 		i++;
 	}
 }
