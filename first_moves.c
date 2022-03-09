@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 18:59:07 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/08 20:30:31 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/09 21:14:46 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,12 @@ void	renumber_stack_a(ps_struct *box, int *temp)
 
 void	divide_stack(ps_struct *box)
 {
+	box->max = box->len_a;
 	box->half = box->len_a / 2;
 	while (minor_in_a(box))
 	{
 		if (box->stack_a[0] <= box->half)
-			{
-				pb(box);
-				write (1, "pb\n", 3);
-			}
+			pb(box);
 		else
 		{
 			ra(box);
