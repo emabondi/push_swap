@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:28 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/08 20:31:28 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/09 14:41:47 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ int	main(int argc, char *argv[])
 	ft_check_malloc(box.stack_b);
 	if(!fill_stack_a(&box, argv))
 	{
-		write (1, "ERROR\n", 6);
+		write (1, "Error\n", 6);
 		return (0);
 	}
 	renumber_stack(&box);
 	divide_stack(&box);
+	ft_push_swap(&box);
 	i = 0;
 	while (i < box.len_a)
 	{

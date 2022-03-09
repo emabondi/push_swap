@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:15:37 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/08 20:40:06 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/09 15:26:59 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,10 @@ void	rb(ps_struct *box)
 		i++;
 	}
 	box->stack_b[i] = temp;
+}
+
+void	ss(ps_struct *box)
+{
+	ft_swap(&box->stack_a[0], &box->stack_a[1]);
+	ft_swap(&box->stack_b[0], &box->stack_b[1]);
 }
