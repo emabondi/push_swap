@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:59 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/09 15:40:18 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/10 15:39:04 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int		minor_in_a(ps_struct *box);
 void	ft_push_swap(ps_struct *box);
 int		a_ordered(ps_struct *box);
 int		b_ordered(ps_struct *box);
+void	push_a(ps_struct *box);
 
 #endif

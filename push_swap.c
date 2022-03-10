@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 14:45:51 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/09 18:56:39 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/10 19:12:49 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,33 @@
 void	ft_push_swap(ps_struct *box)
 {
 	int	i;
-	int	j;
-
-	j = 0;
-	while ((!a_ordered(box) || !b_ordered(box)) && j < 18)
+	
+	while ((!a_ordered(box) || !b_ordered(box)))
 	{
-		if (box->stack_a[0] > box->stack_a[1] && box->stack_b[0] < box->stack_b[1])
+		if (box->stack_a[0] > box->stack_a[1] && box->stack_b[0] < box->stack_b[1] && box->stack_a[0] != box->max && box->stack_b[0] != 1)
 			ss(box);
-		else if (box->stack_a[0] < box->stack_a[1] && box->stack_b[0] > box->stack_b[1])
+		else if ((box->stack_a[0] < box->stack_a[1] && box->stack_b[0] > box->stack_b[1]) || (box->stack_a[0] == box->max && box->stack_b[0] == 1))
 			rr(box);
-		else if (box->stack_a[0] > box->stack_a[1])
+		else if (box->stack_a[0] > box->stack_a[1] && box->stack_a[0] != box->max)
 		{
 			ft_swap(&box->stack_a[0], &box->stack_a[1]);
 			write (1, "sa\n", 3);
 		}
-		else if (box->stack_b[0] < box->stack_b[1])
+		else if (box->stack_b[0] < box->stack_b[1] && box->stack_b[0] != 1)
 		{
 			ft_swap(&box->stack_b[0], &box->stack_b[1]);
 			write (1, "sb\n", 3);
 		}
-		else if (box->stack_a[0] < box->stack_a[1] && !a_ordered(box))
+		else if (box->stack_a[0] < box->stack_a[1] || box->stack_a[0] == box->max)
 		{
 			ra(box);
 			write (1, "ra\n", 3);
 		}
-		else if (box->stack_b[0] > box->stack_b[1] && !b_ordered(box))
+		else if (box->stack_b[0] > box->stack_b[1] || box->stack_b[0] == 1)
 		{
 			rb(box);
 			write (1, "rb\n", 3);
 		}
-		j++;
 	}
 }
 
@@ -81,4 +78,10 @@ void	rr(ps_struct *box)
 	ra(box);
 	rb(box);
 	write (1, "rr\n", 3);
+}
+
+void	push_a(ps_struct *box)
+{
+	while (box->len_b)
+		pa(box);
 }

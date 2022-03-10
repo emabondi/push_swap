@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:28 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/09 18:11:09 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/03/10 15:39:23 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,20 @@ int	main(int argc, char *argv[])
 	renumber_stack(&box);
 	divide_stack(&box);
 	ft_push_swap(&box);
-	i = 0;
-	while (i < box.len_a)
-	{
-		printf("%d ", box.stack_a[i]);
-		i++;
-	}
-	i = 0;
-	printf ("\n");
-	while (i < box.len_b)
-	{
-		printf("%d ", box.stack_b[i]);
-		i++;
-	}
+	push_a(&box);
+	//i = 0;
+	//while (i < box.len_a)
+	//{
+	//	printf("%d ", box.stack_a[i]);
+	//	i++;
+	//}
+	//i = 0;
+	//printf ("\n");
+	//while (i < box.len_b)
+	//{
+	//	printf("%d ", box.stack_b[i]);
+	//	i++;
+	//}
 }
 
 void	renumber_stack(ps_struct *box)
