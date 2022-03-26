@@ -54,16 +54,28 @@ void	ft_check_malloc(void *ptr)
 		exit (1);
 }
 
-int	minor_in_a(ps_struct *box)
+int	find_ind_min(ps_struct *box)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < box->len_a)
+	while (i < box->len_a)
 	{
-		if (box->stack_a[i] <= box->half)
-			return (1);
+		if (box->stack_a[i] == 1)
+			return (i);
 		i++;
 	}
 	return (0);
+}
+
+void	ft_printarray(int *ar, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		printf("%d\n", ar[i]);
+		i++;
+	}
 }

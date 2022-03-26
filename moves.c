@@ -30,7 +30,7 @@ void	pb(ps_struct *box)
 	while (i > 0)
 	{
 		box->stack_b[i] = box->stack_b[i - 1];
-		i--;		
+		i--;
 	}
 	box->stack_b[0] = temp;
 	write (1, "pb\n", 3);
@@ -54,7 +54,7 @@ void	pa(ps_struct *box)
 	while (i > 0)
 	{
 		box->stack_a[i] = box->stack_a[i - 1];
-		i--;		
+		i--;
 	}
 	box->stack_a[0] = temp;
 	write (1, "pa\n", 3);

@@ -33,22 +33,22 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	renumber_stack(&box);
-	divide_stack(&box);
-	ft_push_swap(&box);
-	push_a(&box);
-	//i = 0;
-	//while (i < box.len_a)
-	//{
-	//	printf("%d ", box.stack_a[i]);
-	//	i++;
-	//}
-	//i = 0;
-	//printf ("\n");
-	//while (i < box.len_b)
-	//{
-	//	printf("%d ", box.stack_b[i]);
-	//	i++;
-	//}
+	box.lis = lis(&box);
+	push_chunk_b(&box);
+	push_swap(&box);
+	i = 0;
+	while (i < box.len_a)
+	{
+		printf("%d ", box.stack_a[i]);
+		i++;
+	}
+	i = 0;
+	printf ("\n");
+	while (i < box.len_b)
+	{
+		printf("%d ", box.stack_b[i]);
+		i++;
+	}
 }
 
 void	renumber_stack(ps_struct *box)
@@ -130,7 +130,7 @@ int	ft_check(char *num)
 	{
 		if (num[i] < '0' || num[i] > '9')
 			return (0);
-		i++;		
+		i++;
 	}
 	return (1);
 }
