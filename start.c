@@ -12,44 +12,30 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
-{
-	ps_struct	box;
-	int			i;
+// int	main(int argc, char *argv[])
+// {
+// 	t_struct data;
 
-	if (argc <= 1)
-		write(1, "Arguments not inserted\n", 23);
-	if (argc <= 1)
-		return (0);
-	box.len_a = argc - 1;
-	box.len_b = 0;
-	box.stack_a = (int *) malloc (sizeof(int) * box.len_a);
-	ft_check_malloc(box.stack_a);
-	box.stack_b = (int *) malloc (sizeof(int) * box.len_a);
-	ft_check_malloc(box.stack_b);
-	if(!fill_stack_a(&box, argv))
-	{
-		write (1, "Error\n", 6);
-		return (0);
-	}
-	renumber_stack(&box);
-	box.lis = lis(&box);
-	push_chunk_b(&box);
-	push_swap(&box);
-	i = 0;
-	while (i < box.len_a)
-	{
-		printf("%d ", box.stack_a[i]);
-		i++;
-	}
-	i = 0;
-	printf ("\n");
-	while (i < box.len_b)
-	{
-		printf("%d ", box.stack_b[i]);
-		i++;
-	}
-}
+// 	if (argc <= 1)
+// 		return (0);
+// 	if (argc == 2)
+// 		data.ar_a = ft_mono_init(argv[1], &data.size_a);
+// 	else
+// 	{
+// 		argc -= 1;
+// 		if (ft_multi_check(&argv[1], argc) == 0)
+// 			ft_error();
+// 		data.ar_a = ft_multi_init(&argv[1], argc);
+// 		data.size_a = argc;
+// 	}
+// 	if (ft_checkfordoubles(data.ar_a, data.size_a) == 0)
+// 		ft_error();
+// 	data.ar_a = ft_trasformer(data.ar_a, data.size_a);
+// 	ft_resolve(&data);
+// 	free(data.ar_a);
+// 	free(data.ar_b);
+// 	return (0);
+// }
 
 void	renumber_stack(ps_struct *box)
 {
@@ -71,7 +57,7 @@ void	renumber_stack(ps_struct *box)
 		while (j < box->len_a - 1)
 		{
 			if (temp[j] > temp[j + 1])
-				ft_swap(&temp[j], &temp[j + 1]);
+				ft_swap(&temp[j], &temp[j + 1], box->len_a);
 			j++;
 		}
 		i--;
@@ -87,9 +73,9 @@ int	fill_stack_a(ps_struct *box, char *argv[])
 	i = 0;
 	while(i < box->len_a)
 	{
-		if (!ft_check(argv[i + 1]))
+		if (!ft_check(argv[i]))
 			return (0);
-		box->stack_a[i] = ft_atoi(argv[i + 1]);
+		box->stack_a[i] = ft_atoi(argv[i]);
 		i++;
 	}
 	if(!check_stacks(box))

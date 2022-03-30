@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <ebondi@student.42roma.it>          +#+  +:+       +#+        */
+/*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:59 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/26 18:58:08 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/30 19:10:17 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ int		check_stacks(ps_struct *box);
 int		ft_check(char *num);
 int		fill_stack_a(ps_struct *box, char *argv[]);
 void	renumber_stack(ps_struct *box);
-void	ft_swap(int *num1, int *num2);
+void	ft_swap(int *num1, int *num2, int size);
 void	ft_check_malloc(void *ptr);
 void	renumber_stack_a(ps_struct *box, int *temp);
 int		**matrix_init(ps_struct *box);
 int		*extend_matrix(int *arr, int *j, int num);
 void	ft_between(int **matrix, int num);
-int		ft_go_away(ps_struct *box, int num);
+void	ft_go_away(ps_struct *box, int num);
 int		find_ind(int *arr, int size_arr, int num);
 void	pb(ps_struct *box);
 void	pa(ps_struct *box);
@@ -71,5 +71,16 @@ void	find_best_a(t_best *best, ps_struct *box);
 void	find_best_a_2(t_best *best, ps_struct *box, int j);
 void	count_moves(t_best *best);
 void	do_push_swap(t_best min, ps_struct *box);
+void	one_first(ps_struct *box);
+char	**ft_split(char const *s, char c);
+void	ft_error(void);
+int		count_stack(char **args);
+char	*get_next_line(int fd);
+int	ft_strcpy(char *s1, char *s2);
+void	ft_strcpy2(char *save, char *str, int i);
+int	ft_findchr(const char *s, char c);
+char	*ft_save(char *str);
+void	checker_pb(ps_struct *box);
+void	checker_pa(ps_struct *box);
 
 #endif

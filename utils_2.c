@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <ebondi@student.42roma.it>          +#+  +:+       +#+        */
+/*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 17:58:35 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/25 17:58:35 by marvin           ###   ########.fr       */
+/*   Created: 2022/03/27 17:56:56 by ebondi            #+#    #+#             */
+/*   Updated: 2022/03/27 17:56:56 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_order(int *ar, int size)
 	return (1);
 }
 
-int	ft_go_away(ps_struct *box, int num)
+void	ft_go_away(ps_struct *box, int num)
 {
 	int	i;
 

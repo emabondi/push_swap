@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <ebondi@student.42roma.it>          +#+  +:+       +#+        */
+/*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 18:10:10 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/25 18:10:10 by marvin           ###   ########.fr       */
+/*   Created: 2022/03/27 17:56:17 by ebondi            #+#    #+#             */
+/*   Updated: 2022/03/27 17:56:17 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	rra(ps_struct *box)
 	int temp;
 	int	i;
 
+	if (box->len_a <= 1)
+		ft_error ();
 	i = box->len_a - 1;
 	temp = box->stack_a[i];
 	while (i > 0)
@@ -39,6 +41,8 @@ void	rrb(ps_struct *box)
 	int temp;
 	int	i;
 
+	if (box->len_b <= 1)
+		ft_error ();
 	i = box->len_b - 1;
 	temp = box->stack_b[i];
 	while (i > 0)

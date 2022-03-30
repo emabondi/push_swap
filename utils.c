@@ -39,10 +39,12 @@ int	ft_atoi(const char *str)
 	return (res * s);
 }
 
-void	ft_swap(int *num1, int *num2)
+void	ft_swap(int *num1, int *num2, int size)
 {
 	int	temp;
 
+	if (size <= 1)
+		ft_error ();
 	temp = *num1;
 	*num1 = *num2;
 	*num2 = temp;

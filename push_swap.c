@@ -19,8 +19,13 @@ void	push_chunk_b(ps_struct *box)
 	int	i;
 
 	average = box->len_a / 4;
+	if (average == 0 && (box->stack_a[0] == 1 || box->stack_a[1] == 2 || box->stack_a[2] == 3))
+	{
+		ft_swap(&box->stack_a[0], &box->stack_a[1], box->len_a);
+		write(1, "sa\n", 3);
+	}
 	init_average = average;
-	while (box->len_a != box->lis_size)
+	while (box->len_a != box->lis_size && average != 0)
 	{
 		i = 0;
 		while (i < box->len_a)
@@ -65,7 +70,6 @@ void	push_swap(ps_struct *box)
 t_best	*find_best_move(ps_struct *box)
 {
 	int	i;
-	int	j;
 	t_best	*best;
 
 	best = (t_best *) malloc (sizeof(t_best) * box->len_b);
