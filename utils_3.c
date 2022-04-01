@@ -44,3 +44,31 @@ int	count_stack(char **args)
 		i++;
 	return (i);
 }
+
+int	*arr_dup(int *arr, int len)
+{
+	int	*new;
+	int	i;
+
+	new = (int *) malloc (sizeof(int) * len);
+	i = 0;
+	while (i < len)
+	{
+		new[i] = arr[i];
+		i++;
+	}
+	return (new);
+}
+
+void	free_matrix(int **matrix, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		free (matrix[i]);
+		i++;
+	}
+	free (matrix);
+}

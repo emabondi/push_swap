@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:43:59 by ebondi            #+#    #+#             */
-/*   Updated: 2022/03/30 19:10:17 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/01 16:52:54 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct push_swap
 int		ft_atoi(const char *str);
 int		check_stacks(ps_struct *box);
 int		ft_check(char *num);
-int		fill_stack_a(ps_struct *box, char *argv[]);
+int		fill_stack_a(ps_struct *box, char *argv[], int flag);
 void	renumber_stack(ps_struct *box);
 void	ft_swap(int *num1, int *num2, int size);
 void	ft_check_malloc(void *ptr);
@@ -60,7 +60,7 @@ void	rr(ps_struct *box);
 void	rra(ps_struct *box);
 void	rrb(ps_struct *box);
 void	rrr(ps_struct *box);
-int		*lis(ps_struct *box);
+void	lis(ps_struct *box);
 int		find_ind_min(ps_struct *box);
 void	push_chunk_b(ps_struct *box);
 void	ft_printarray(int *ar, int size);
@@ -76,11 +76,13 @@ char	**ft_split(char const *s, char c);
 void	ft_error(void);
 int		count_stack(char **args);
 char	*get_next_line(int fd);
-int	ft_strcpy(char *s1, char *s2);
+int		ft_strcpy(char *s1, char *s2);
 void	ft_strcpy2(char *save, char *str, int i);
-int	ft_findchr(const char *s, char c);
+int		ft_findchr(const char *s, char c);
 char	*ft_save(char *str);
 void	checker_pb(ps_struct *box);
 void	checker_pa(ps_struct *box);
+int		*arr_dup(int *arr, int len);
+void	free_matrix(int **matrix, int size);
 
 #endif

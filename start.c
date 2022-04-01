@@ -66,7 +66,7 @@ void	renumber_stack(ps_struct *box)
 	free (temp);
 }
 
-int	fill_stack_a(ps_struct *box, char *argv[])
+int	fill_stack_a(ps_struct *box, char *argv[], int flag)
 {
 	int	i;
 
@@ -76,10 +76,14 @@ int	fill_stack_a(ps_struct *box, char *argv[])
 		if (!ft_check(argv[i]))
 			return (0);
 		box->stack_a[i] = ft_atoi(argv[i]);
+		if (flag == 0)
+			free(argv[i]);
 		i++;
 	}
 	if(!check_stacks(box))
 		return (0);
+	if (flag == 0)
+		free(argv);
 	return (1);
 }
 

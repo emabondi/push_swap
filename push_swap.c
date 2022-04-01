@@ -62,7 +62,7 @@ void	push_swap(ps_struct *box)
 				min = best[i];
 			i++;
 		}
-		// printf("num:%d\nn_move:%d\ndir_b:%d\ninsertion_point:%d\nn_move_insertion_point:%d\ndir_a:%d\ntotal_moves:%d\n", min.num, min.n_move, min.dir_b, min.insertion_point, min.n_move_insertion, min.dir_a, min.total_moves);
+		//printf("num:%d\nn_move:%d\ndir_b:%d\ninsertion_point:%d\nn_move_insertion_point:%d\ndir_a:%d\ntotal_moves:%d\n", min.num, min.n_move, min.dir_b, min.insertion_point, min.n_move_insertion, min.dir_a, min.total_moves);
 		do_push_swap(min, box);
 	}
 }

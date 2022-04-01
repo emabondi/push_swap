@@ -77,11 +77,13 @@ int	main(int argc, char *argv[])
 	ft_check_malloc(box.stack_a);
 	box.stack_b = (int *) malloc (sizeof(int) * box.len_a);
 	ft_check_malloc(box.stack_b);
-	if(!fill_stack_a(&box, &argv[flag]))
+	if(!fill_stack_a(&box, &argv[flag], flag))
 		ft_error();
 	ft_checker(&box);
 	if (ft_order(box.stack_a, box.len_a) == 1)
 		write (1, "OK\n", 3);
 	else
 		write (1, "KO\n", 3);
+	free (box.stack_a);
+	free (box.stack_b);
 }

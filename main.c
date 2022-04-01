@@ -33,13 +33,16 @@ int	main(int argc, char *argv[])
 	ft_check_malloc(box.stack_a);
 	box.stack_b = (int *) malloc (sizeof(int) * box.len_a);
 	ft_check_malloc(box.stack_b);
-	if(!fill_stack_a(&box, &argv[flag]))
+	if(!fill_stack_a(&box, &argv[flag], flag))
 		ft_error();
 	renumber_stack(&box);
-	box.lis = lis(&box);
+	lis(&box);
 	push_chunk_b(&box);
 	push_swap(&box);
 	one_first(&box);
+	free (box.stack_a);
+	free (box.stack_b);
+	free (box.lis);
 	// i = 0;
 	// while (i < box.len_a)
 	// {

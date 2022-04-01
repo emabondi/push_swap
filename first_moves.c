@@ -46,7 +46,7 @@ int	**matrix_init(ps_struct *box)
 	return (matrix);
 }
 
-int	*lis(ps_struct *box)
+void	lis(ps_struct *box)
 {
 	int **matrix;
 	int	ind_min;
@@ -70,7 +70,8 @@ int	*lis(ps_struct *box)
 			i = 0;
 	}
 	box->lis_size = j;
-	return(matrix[j - 1]);
+	box->lis = arr_dup(matrix[j - 1], j);
+	free_matrix(matrix, j);
 }
 
 int	*extend_matrix(int *arr, int *j, int num)
@@ -78,7 +79,7 @@ int	*extend_matrix(int *arr, int *j, int num)
 	int	*new_arr;
 	int	i;
 
-	new_arr = (int *) malloc (sizeof(int) * (*j) + 1);
+	new_arr = (int *) malloc (sizeof(int) * (*j + 1));
 	ft_check_malloc(new_arr);
 	i = 0;
 	while (i < *j)
