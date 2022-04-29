@@ -62,7 +62,7 @@ void	lis(ps_struct *box)
 	while (i != ind_min)
 	{
 		if (box->stack_a[i] > matrix[j - 1][j - 1])
-			matrix[j] = extend_matrix(matrix[j - 1], &j, box->stack_a[i]);
+			matrix[j - 1] = extend_matrix(matrix[j - 1], &j, box->stack_a[i]);
 		else
 			ft_between(matrix, box->stack_a[i]);
 		i++;

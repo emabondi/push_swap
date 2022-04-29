@@ -36,6 +36,11 @@ int	main(int argc, char *argv[])
 	if(!fill_stack_a(&box, &argv[flag], flag))
 		ft_error();
 	renumber_stack(&box);
+	if ((box.stack_a[0] == 1 || box.stack_a[1] == 2 || box.stack_a[2] == 3) && box.stack_a[0] != 4 && box.stack_a[2] != 5)
+	{
+		ft_swap(&box.stack_a[0], &box.stack_a[1], box.len_a);
+		write(1, "sa\n", 3);
+	}
 	lis(&box);
 	push_chunk_b(&box);
 	push_swap(&box);

@@ -19,11 +19,6 @@ void	push_chunk_b(ps_struct *box)
 	int	i;
 
 	average = box->len_a / 4;
-	if (average == 0 && (box->stack_a[0] == 1 || box->stack_a[1] == 2 || box->stack_a[2] == 3))
-	{
-		ft_swap(&box->stack_a[0], &box->stack_a[1], box->len_a);
-		write(1, "sa\n", 3);
-	}
 	init_average = average;
 	while (box->len_a != box->lis_size && average != 0)
 	{
@@ -51,7 +46,7 @@ void	push_swap(ps_struct *box)
 	t_best	min;
 	int		i;
 
-	while(ft_order(box->stack_a, box->len_a) == 0 && box->len_b != 0)
+	while (box->len_b != 0)
 	{
 		best = find_best_move(box);
 		min = best[0];
@@ -62,7 +57,6 @@ void	push_swap(ps_struct *box)
 				min = best[i];
 			i++;
 		}
-		//printf("num:%d\nn_move:%d\ndir_b:%d\ninsertion_point:%d\nn_move_insertion_point:%d\ndir_a:%d\ntotal_moves:%d\n", min.num, min.n_move, min.dir_b, min.insertion_point, min.n_move_insertion, min.dir_a, min.total_moves);
 		do_push_swap(min, box);
 	}
 }
