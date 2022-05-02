@@ -23,7 +23,6 @@ int	ft_order(int *ar, int size)
 			return (0);
 		i++;
 	}
-
 	return (1);
 }
 
@@ -32,7 +31,7 @@ void	ft_go_away(ps_struct *box, int num)
 	int	i;
 
 	i = 0;
-	while(box->stack_a[i] != num)
+	while (box->stack_a[i] != num)
 		i++;
 	while (box->stack_a[0] != num)
 	{
@@ -64,17 +63,16 @@ int	find_ind(int *arr, int size_arr, int num)
 	return (-1);
 }
 
-
 void	find_best_a_2(t_best *best, ps_struct *box, int j)
 {
 	best->insertion_point = box->stack_a[j];
-	best->n_move_insertion = j;	
+	best->n_move_insertion = j;
 	best->dir_a = 0;
-		if (j > box->len_a / 2)
-		{
-			best->dir_a = 1;
-			best->n_move_insertion = box->len_a - j;
-		}
+	if (j > box->len_a / 2)
+	{
+		best->dir_a = 1;
+		best->n_move_insertion = box->len_a - j;
+	}
 }
 
 void	count_moves(t_best *best)

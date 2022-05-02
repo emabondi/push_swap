@@ -25,7 +25,8 @@ void	push_chunk_b(ps_struct *box)
 		i = 0;
 		while (i < box->len_a)
 		{
-			if (find_ind(box->lis, box->lis_size, box->stack_a[i]) == -1 && box->stack_a[i] <= average)
+			if (find_ind(box->lis, box->lis_size, box->stack_a[i]) == -1
+				&& box->stack_a[i] <= average)
 			{
 				ft_go_away(box, box->stack_a[i]);
 				i = -1;
@@ -34,10 +35,6 @@ void	push_chunk_b(ps_struct *box)
 		}
 		average += init_average;
 	}
-	// printf("A:\n");
-	// ft_printarray(box->stack_a, box->len_a);
-	// printf("B:\n");
-	// ft_printarray(box->stack_b, box->len_b);
 }
 
 void	push_swap(ps_struct *box)
@@ -63,7 +60,7 @@ void	push_swap(ps_struct *box)
 
 t_best	*find_best_move(ps_struct *box)
 {
-	int	i;
+	int		i;
 	t_best	*best;
 
 	best = (t_best *) malloc (sizeof(t_best) * box->len_b);
@@ -90,7 +87,7 @@ void	find_best_a(t_best *best, ps_struct *box)
 {
 	int	i;
 	int	j;
-	int x;
+	int	x;
 
 	i = 0;
 	while (i < box->len_a)
@@ -119,7 +116,8 @@ void	find_best_a(t_best *best, ps_struct *box)
 
 void	do_push_swap(t_best min, ps_struct *box)
 {
-	while (box->stack_a[0] != min.insertion_point && box->stack_b[0] != min.num && min.dir_a == min.dir_b)
+	while (box->stack_a[0] != min.insertion_point
+			&& box->stack_b[0] != min.num && min.dir_a == min.dir_b)
 	{
 		if (min.dir_a == 0)
 			rr(box);

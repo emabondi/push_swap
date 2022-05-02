@@ -71,15 +71,16 @@ int	find_ind_min(ps_struct *box)
 	}
 	return (0);
 }
-//datogliere
-void	ft_printarray(int *ar, int size)
-{
-	int	i;
 
-	i = 0;
-	while (i < size)
-	{
-		printf("%d\n", ar[i]);
-		i++;
-	}
-}
+//datogliere
+//void	ft_printarray(int *ar, int size)
+//{
+//	int	i;
+
+//	i = 0;
+//	while (i < size)
+//	{
+//		printf("%d\n", ar[i]);
+//		i++;
+//	}
+//}

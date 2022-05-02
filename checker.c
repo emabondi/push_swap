@@ -21,6 +21,7 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
+
 int	check_move(char *str)
 {
 	if (ft_strcmp(str, "pa\n") == 0)
@@ -42,7 +43,7 @@ int	check_move(char *str)
 	return (0);
 }
 
-void ft_correct(char *str, ps_struct *box)
+void	ft_correct(char *str, ps_struct *box)
 {
 	if (check_move(str) == 0)
 		ft_error ();
@@ -68,13 +69,11 @@ void	ft_checker(ps_struct *box)
 {
 	char	*str;
 
-	//str = get_next_line(0);
-	//ft_correct(str, box);
-	while (/*ft_order(box->stack_a, box->len_a) == 0 || box->len_b != 0*/1)
+	while (1)
 	{
-		
 		str = get_next_line(0);
-		if (str == NULL){
+		if (str == NULL)
+		{
 			free (str);
 			break ;
 		}
@@ -89,7 +88,7 @@ int	main(int argc, char *argv[])
 	int			flag;
 
 	if (argc <= 1)
-		ft_error() ;
+		ft_error();
 	box.len_a = argc - 1;
 	box.len_b = 0;
 	flag = 1;
@@ -105,7 +104,7 @@ int	main(int argc, char *argv[])
 	ft_check_malloc(box.stack_a);
 	box.stack_b = (int *) malloc (sizeof(int) * box.len_a);
 	ft_check_malloc(box.stack_b);
-	if(!fill_stack_a(&box, &argv[flag], flag))
+	if (!fill_stack_a(&box, &argv[flag], flag))
 		ft_error();
 	ft_checker(&box);
 	if (ft_order(box.stack_a, box.len_a) == 1)

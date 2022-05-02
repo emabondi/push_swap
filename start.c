@@ -39,7 +39,7 @@
 
 void	renumber_stack(ps_struct *box)
 {
-	int *temp;
+	int	*temp;
 	int	i;
 	int	j;
 
@@ -71,7 +71,7 @@ int	fill_stack_a(ps_struct *box, char *argv[], int flag)
 	int	i;
 
 	i = 0;
-	while(i < box->len_a)
+	while (i < box->len_a)
 	{
 		if (!ft_check(argv[i]))
 			return (0);
@@ -80,7 +80,7 @@ int	fill_stack_a(ps_struct *box, char *argv[], int flag)
 			free(argv[i]);
 		i++;
 	}
-	if(!check_stacks(box))
+	if (!check_stacks(box))
 		return (0);
 	if (flag == 0)
 		free(argv);

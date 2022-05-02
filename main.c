@@ -12,6 +12,25 @@
 
 #include "push_swap.h"
 
+void	main_2(ps_struct *box)
+{
+	if ((box->stack_a[0] == 1 || box->stack_a[1] == 2
+			|| box->stack_a[2] == 3) && box->stack_a[0] != 4
+			&& box->stack_a[2] != 5
+			&& ft_order(box->stack_a, box->len_a) == 0)
+	{
+		ft_swap(&box->stack_a[0], &box->stack_a[1], box->len_a);
+		write(1, "sa\n", 3);
+	}
+	lis(box);
+	push_chunk_b(box);
+	push_swap(box);
+	one_first(box);
+	free (box->stack_a);
+	free (box->stack_b);
+	free (box->lis);
+}
+
 int	main(int argc, char *argv[])
 {
 	ps_struct	box;
@@ -34,32 +53,20 @@ int	main(int argc, char *argv[])
 	ft_check_malloc(box.stack_a);
 	box.stack_b = (int *) malloc (sizeof(int) * box.len_a);
 	ft_check_malloc(box.stack_b);
-	if(!fill_stack_a(&box, &argv[flag], flag))
+	if (!fill_stack_a(&box, &argv[flag], flag))
 		ft_error();
 	renumber_stack(&box);
-	if ((box.stack_a[0] == 1 || box.stack_a[1] == 2 || box.stack_a[2] == 3) && box.stack_a[0] != 4 && box.stack_a[2] != 5 && ft_order(box.stack_a, box.len_a) == 0)
-	{
-		ft_swap(&box.stack_a[0], &box.stack_a[1], box.len_a);
-		write(1, "sa\n", 3);
-	}
-	lis(&box);
-	push_chunk_b(&box);
-	push_swap(&box);
-	one_first(&box);
-	free (box.stack_a);
-	free (box.stack_b);
-	free (box.lis);
-	// i = 0;
-	// while (i < box.len_a)
-	// {
-	// 	printf("%d ", box.stack_a[i]);
-	// 	i++;
-	// }
-	// i = 0;
-	// printf ("\n");
-	// while (i < box.len_b)
-	// {
-	// 	printf("%d ", box.stack_b[i]);
-	// 	i++;
-	// }
+	main_2(&box);
+	//if ((box.stack_a[0] == 1 || box.stack_a[1] == 2 || box.stack_a[2] == 3) && box.stack_a[0] != 4 && box.stack_a[2] != 5 && ft_order(box.stack_a, box.len_a) == 0)
+	//{
+	//	ft_swap(&box.stack_a[0], &box.stack_a[1], box.len_a);
+	//	write(1, "sa\n", 3);
+	//}
+	//lis(&box);
+	//push_chunk_b(&box);
+	//push_swap(&box);
+	//one_first(&box);
+	//free (box.stack_a);
+	//free (box.stack_b);
+	//free (box.lis);
 }
