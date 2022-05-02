@@ -17,6 +17,8 @@ static int	ft_rowcount(char const *str, char c)
 	int	i;
 	int	count;
 
+	if (str == NULL)
+		return (0);
 	count = 0;
 	i = 0;
 	while (str[i] != '\0')
@@ -75,6 +77,8 @@ char	**ft_split(char const *s, char c)
 	int		row;
 
 	count = ft_rowcount(s, c);
+	if (count == 0)
+		return (NULL);
 	matrix = (char **) malloc (sizeof(char *) * (count + 1));
 	ft_check_malloc(matrix);
 	matrix[count] = NULL;

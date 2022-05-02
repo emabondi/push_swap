@@ -23,6 +23,7 @@ int	ft_order(int *ar, int size)
 			return (0);
 		i++;
 	}
+
 	return (1);
 }
 

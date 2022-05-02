@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	s;
-	int	res;
+	int			i;
+	int			s;
+	long long	res;
 
 	i = 0;
 	s = 1;
@@ -36,6 +36,8 @@ int	ft_atoi(const char *str)
 		res = ((res * 10) + (str[i] - 48));
 		i++;
 	}
+	if ((res * s) > 2147483647 || (res * s) < -2147483648)
+		ft_error ();
 	return (res * s);
 }
 
@@ -69,7 +71,7 @@ int	find_ind_min(ps_struct *box)
 	}
 	return (0);
 }
-
+//datogliere
 void	ft_printarray(int *ar, int size)
 {
 	int	i;

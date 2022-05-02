@@ -12,7 +12,7 @@
 
 #include"push_swap.h"
 
-int		ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
@@ -21,28 +21,47 @@ int		ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
-
+int	check_move(char *str)
+{
+	if (ft_strcmp(str, "pa\n") == 0)
+		return (1);
+	if (ft_strcmp(str, "pb\n") == 0)
+		return (1);
+	if (ft_strcmp(str, "ra\n") == 0 || ft_strcmp(str, "rr\n") == 0)
+		return (1);
+	if (ft_strcmp(str, "rb\n") == 0 || ft_strcmp(str, "rr\n") == 0)
+		return (1);
+	if (ft_strcmp(str, "rra\n") == 0 || ft_strcmp(str, "rrr\n") == 0)
+		return (1);
+	if (ft_strcmp(str, "rrb\n") == 0 || ft_strcmp(str, "rrr\n") == 0)
+		return (1);
+	if (ft_strcmp(str, "sa\n") == 0 || ft_strcmp(str, "ss\n") == 0)
+		return (1);
+	if (ft_strcmp(str, "sb\n") == 0 || ft_strcmp(str, "ss\n") == 0)
+		return (1);
+	return (0);
+}
 
 void ft_correct(char *str, ps_struct *box)
 {
+	if (check_move(str) == 0)
+		ft_error ();
 	if (ft_strcmp(str, "pa\n") == 0)
 		checker_pa(box);
-	else if (ft_strcmp(str, "pb\n") == 0)
+	if (ft_strcmp(str, "pb\n") == 0)
 		checker_pb(box);
-	else if (ft_strcmp(str, "ra\n") == 0 || ft_strcmp(str, "rr\n") == 0)
+	if (ft_strcmp(str, "ra\n") == 0 || ft_strcmp(str, "rr\n") == 0)
 		ra(box);
-	else if (ft_strcmp(str, "rb\n") == 0 || ft_strcmp(str, "rr\n") == 0)
+	if (ft_strcmp(str, "rb\n") == 0 || ft_strcmp(str, "rr\n") == 0)
 		rb(box);
-	else if (ft_strcmp(str, "rra\n") == 0 || ft_strcmp(str, "rrr\n") == 0)
+	if (ft_strcmp(str, "rra\n") == 0 || ft_strcmp(str, "rrr\n") == 0)
 		rra(box);
-	else if (ft_strcmp(str, "rrb\n") == 0 || ft_strcmp(str, "rrr\n") == 0)
+	if (ft_strcmp(str, "rrb\n") == 0 || ft_strcmp(str, "rrr\n") == 0)
 		rrb(box);
-	else if (ft_strcmp(str, "sa\n") == 0 || ft_strcmp(str, "ss\n") == 0)
+	if (ft_strcmp(str, "sa\n") == 0 || ft_strcmp(str, "ss\n") == 0)
 		ft_swap(&box->stack_a[0], &box->stack_a[1], box->len_a);
-	else if (ft_strcmp(str, "sb\n") == 0 || ft_strcmp(str, "ss\n") == 0)
+	if (ft_strcmp(str, "sb\n") == 0 || ft_strcmp(str, "ss\n") == 0)
 		ft_swap(&box->stack_b[0], &box->stack_b[1], box->len_b);
-	else 
-		ft_error ();
 }
 
 void	ft_checker(ps_struct *box)
@@ -59,27 +78,10 @@ void	ft_checker(ps_struct *box)
 			free (str);
 			break ;
 		}
-			ft_correct(str, box);
+		ft_correct(str, box);
 		free (str);
 	}
 }
-
-//void	ft_checker(ps_struct *box)
-//{
-//	char	*str;
-
-//	str = get_next_line(0);
-//	while (ft_order(box->stack_a, box->len_a) == 0 || box->len_b != 0)
-//	{
-//		if (str == NULL)
-//			break ;
-//		ft_correct(str, box);
-//		free (str);
-//		str = get_next_line(0);
-//	}
-//	if (str != NULL)
-//		free (str);
-//}
 
 int	main(int argc, char *argv[])
 {
@@ -94,6 +96,8 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
+		if (argv == NULL)
+			ft_error();
 		box.len_a = count_stack(argv);
 		flag = 0;
 	}

@@ -15,17 +15,18 @@
 int	main(int argc, char *argv[])
 {
 	ps_struct	box;
-	//int			i;
 	int			flag;
 
 	if (argc <= 1)
-		ft_error() ;
+		ft_error();
 	box.len_a = argc - 1;
 	box.len_b = 0;
 	flag = 1;
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
+		if (argv == NULL)
+			ft_error();
 		box.len_a = count_stack(argv);
 		flag = 0;
 	}
@@ -36,7 +37,7 @@ int	main(int argc, char *argv[])
 	if(!fill_stack_a(&box, &argv[flag], flag))
 		ft_error();
 	renumber_stack(&box);
-	if ((box.stack_a[0] == 1 || box.stack_a[1] == 2 || box.stack_a[2] == 3) && box.stack_a[0] != 4 && box.stack_a[2] != 5)
+	if ((box.stack_a[0] == 1 || box.stack_a[1] == 2 || box.stack_a[2] == 3) && box.stack_a[0] != 4 && box.stack_a[2] != 5 && ft_order(box.stack_a, box.len_a) == 0)
 	{
 		ft_swap(&box.stack_a[0], &box.stack_a[1], box.len_a);
 		write(1, "sa\n", 3);
