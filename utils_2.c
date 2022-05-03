@@ -26,7 +26,7 @@ int	ft_order(int *ar, int size)
 	return (1);
 }
 
-void	ft_go_away(ps_struct *box, int num)
+void	ft_go_away(t_struct *box, int num)
 {
 	int	i;
 
@@ -63,7 +63,7 @@ int	find_ind(int *arr, int size_arr, int num)
 	return (-1);
 }
 
-void	find_best_a_2(t_best *best, ps_struct *box, int j)
+void	find_best_a_2(t_best *best, t_struct *box, int j)
 {
 	best->insertion_point = box->stack_a[j];
 	best->n_move_insertion = j;

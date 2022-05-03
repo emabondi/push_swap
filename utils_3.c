@@ -12,21 +12,24 @@
 
 #include "push_swap.h"
 
-void	one_first(ps_struct *box)
+void	one_first(t_struct *box)
 {
 	if (find_ind_min(box) <= box->len_a / 2)
+	{
 		while (box->stack_a[0] != 1)
 		{
 			ra(box);
 			write (1, "ra\n", 3);
 		}
+	}
 	else
+	{
 		while (box->stack_a[0] != 1)
 		{
 			rra(box);
 			write (1, "rra\n", 4);
 		}
-
+	}
 }
 
 void	ft_error(void)

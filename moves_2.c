@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-void	rr(ps_struct *box)
+void	rr(t_struct *box)
 {
 	ra(box);
 	rb(box);
 	write (1, "rr\n", 3);
 }
 
-void	rra(ps_struct *box)
+void	rra(t_struct *box)
 {
-	int temp;
+	int	temp;
 	int	i;
 
 	if (box->len_a <= 1)
@@ -36,9 +36,9 @@ void	rra(ps_struct *box)
 	box->stack_a[i] = temp;
 }
 
-void	rrb(ps_struct *box)
+void	rrb(t_struct *box)
 {
-	int temp;
+	int	temp;
 	int	i;
 
 	if (box->len_b <= 1)
@@ -53,7 +53,7 @@ void	rrb(ps_struct *box)
 	box->stack_b[i] = temp;
 }
 
-void	rrr(ps_struct *box)
+void	rrr(t_struct *box)
 {
 	rra(box);
 	rrb(box);

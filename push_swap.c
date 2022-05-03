@@ -12,7 +12,7 @@
 
 #include"push_swap.h"
 
-void	push_chunk_b(ps_struct *box)
+void	push_chunk_b(t_struct *box)
 {
 	int	average;
 	int	init_average;
@@ -37,7 +37,7 @@ void	push_chunk_b(ps_struct *box)
 	}
 }
 
-void	push_swap(ps_struct *box)
+void	push_swap(t_struct *box)
 {
 	t_best	*best;
 	t_best	min;
@@ -58,7 +58,7 @@ void	push_swap(ps_struct *box)
 	}
 }
 
-t_best	*find_best_move(ps_struct *box)
+t_best	*find_best_move(t_struct *box)
 {
 	int		i;
 	t_best	*best;
@@ -83,7 +83,7 @@ t_best	*find_best_move(ps_struct *box)
 	return (best);
 }
 
-void	find_best_a(t_best *best, ps_struct *box)
+void	find_best_a(t_best *best, t_struct *box)
 {
 	int	i;
 	int	j;
@@ -104,20 +104,13 @@ void	find_best_a(t_best *best, ps_struct *box)
 			x = i;
 		i++;
 	}
-	best->insertion_point = 1;
-	best->n_move_insertion = x;
-	best->dir_a = 0;
-	if (x > box->len_a / 2)
-	{
-		best->dir_a = 1;
-		best->n_move_insertion = box->len_a - x;
-	}
+	find_best_a_3(best, box, x);
 }
 
-void	do_push_swap(t_best min, ps_struct *box)
+void	do_push_swap(t_best min, t_struct *box)
 {
 	while (box->stack_a[0] != min.insertion_point
-			&& box->stack_b[0] != min.num && min.dir_a == min.dir_b)
+		&& box->stack_b[0] != min.num && min.dir_a == min.dir_b)
 	{
 		if (min.dir_a == 0)
 			rr(box);
@@ -134,15 +127,6 @@ void	do_push_swap(t_best min, ps_struct *box)
 		rb(box);
 		write (1, "rb\n", 3);
 	}
-	while (box->stack_a[0] != min.insertion_point && min.dir_a == 1)
-	{
-		rra(box);
-		write (1, "rra\n", 4);
-	}
-	while (box->stack_b[0] != min.num && min.dir_b == 1)
-	{
-		rrb(box);
-		write (1, "rrb\n", 4);
-	}
+	do_push_swap2(min, box);
 	pa(box);
 }

@@ -13,8 +13,8 @@
 NAME = push_swap
 CHECKER = checker
 
-SRC = main.c start.c first_moves.c ft_split.c moves.c moves_2.c push_swap.c utils.c utils_2.c utils_3.c
-SRC_CHECKER = checker.c checker_utils.c moves.c moves_2.c utils.c utils_2.c utils_3.c get_next_line.c get_next_line_utility.c ft_split.c start.c first_moves.c
+SRC = main.c start.c first_moves.c ft_split.c moves.c moves_2.c push_swap.c utils.c utils_2.c utils_3.c cut_functions.c
+SRC_CHECKER = checker.c checker_utils.c moves.c moves_2.c utils.c utils_2.c utils_3.c get_next_line.c get_next_line_utility.c ft_split.c start.c first_moves.c cut_functions.c
 
 FLG = -Wall -Werror -Wextra 
 

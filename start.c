@@ -12,32 +12,7 @@
 
 #include "push_swap.h"
 
-// int	main(int argc, char *argv[])
-// {
-// 	t_struct data;
-
-// 	if (argc <= 1)
-// 		return (0);
-// 	if (argc == 2)
-// 		data.ar_a = ft_mono_init(argv[1], &data.size_a);
-// 	else
-// 	{
-// 		argc -= 1;
-// 		if (ft_multi_check(&argv[1], argc) == 0)
-// 			ft_error();
-// 		data.ar_a = ft_multi_init(&argv[1], argc);
-// 		data.size_a = argc;
-// 	}
-// 	if (ft_checkfordoubles(data.ar_a, data.size_a) == 0)
-// 		ft_error();
-// 	data.ar_a = ft_trasformer(data.ar_a, data.size_a);
-// 	ft_resolve(&data);
-// 	free(data.ar_a);
-// 	free(data.ar_b);
-// 	return (0);
-// }
-
-void	renumber_stack(ps_struct *box)
+void	renumber_stack(t_struct *box)
 {
 	int	*temp;
 	int	i;
@@ -66,7 +41,7 @@ void	renumber_stack(ps_struct *box)
 	free (temp);
 }
 
-int	fill_stack_a(ps_struct *box, char *argv[], int flag)
+int	fill_stack_a(t_struct *box, char *argv[], int flag)
 {
 	int	i;
 
@@ -87,7 +62,7 @@ int	fill_stack_a(ps_struct *box, char *argv[], int flag)
 	return (1);
 }
 
-int	check_stacks(ps_struct *box)
+int	check_stacks(t_struct *box)
 {
 	int	i;
 	int	j;

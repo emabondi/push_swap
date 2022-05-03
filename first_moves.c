@@ -12,7 +12,7 @@
 
 #include"push_swap.h"
 
-void	renumber_stack_a(ps_struct *box, int *temp)
+void	renumber_stack_a(t_struct *box, int *temp)
 {
 	int	i;
 	int	j;
@@ -34,7 +34,7 @@ void	renumber_stack_a(ps_struct *box, int *temp)
 	}
 }
 
-int	**matrix_init(ps_struct *box)
+int	**matrix_init(t_struct *box)
 {
 	int	**matrix;
 
@@ -46,9 +46,9 @@ int	**matrix_init(ps_struct *box)
 	return (matrix);
 }
 
-void	lis(ps_struct *box)
+void	lis(t_struct *box)
 {
-	int **matrix;
+	int	**matrix;
 	int	ind_min;
 	int	j;
 	int	i;

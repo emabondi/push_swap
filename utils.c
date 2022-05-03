@@ -58,7 +58,7 @@ void	ft_check_malloc(void *ptr)
 		exit (1);
 }
 
-int	find_ind_min(ps_struct *box)
+int	find_ind_min(t_struct *box)
 {
 	int	i;
 

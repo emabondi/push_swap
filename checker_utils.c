@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	checker_pb(ps_struct *box)
+void	checker_pb(t_struct *box)
 {
 	int	temp;
 	int	i;
@@ -22,7 +22,7 @@ void	checker_pb(ps_struct *box)
 	temp = box->stack_a[0];
 	box->len_a--;
 	i = 0;
-	while(i < box->len_a)
+	while (i < box->len_a)
 	{
 		box->stack_a[i] = box->stack_a[i + 1];
 		i++;
@@ -37,7 +37,7 @@ void	checker_pb(ps_struct *box)
 	box->stack_b[0] = temp;
 }
 
-void	checker_pa(ps_struct *box)
+void	checker_pa(t_struct *box)
 {
 	int	temp;
 	int	i;
@@ -47,7 +47,7 @@ void	checker_pa(ps_struct *box)
 	temp = box->stack_b[0];
 	box->len_b--;
 	i = 0;
-	while(i < box->len_b)
+	while (i < box->len_b)
 	{
 		box->stack_b[i] = box->stack_b[i + 1];
 		i++;

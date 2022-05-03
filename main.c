@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-void	main_2(ps_struct *box)
+void	main_2(t_struct *box)
 {
 	if ((box->stack_a[0] == 1 || box->stack_a[1] == 2
 			|| box->stack_a[2] == 3) && box->stack_a[0] != 4
-			&& box->stack_a[2] != 5
-			&& ft_order(box->stack_a, box->len_a) == 0)
+		&& box->stack_a[2] != 5
+		&& ft_order(box->stack_a, box->len_a) == 0)
 	{
 		ft_swap(&box->stack_a[0], &box->stack_a[1], box->len_a);
 		write(1, "sa\n", 3);
@@ -33,7 +33,7 @@ void	main_2(ps_struct *box)
 
 int	main(int argc, char *argv[])
 {
-	ps_struct	box;
+	t_struct	box;
 	int			flag;
 
 	if (argc <= 1)
@@ -57,16 +57,4 @@ int	main(int argc, char *argv[])
 		ft_error();
 	renumber_stack(&box);
 	main_2(&box);
-	//if ((box.stack_a[0] == 1 || box.stack_a[1] == 2 || box.stack_a[2] == 3) && box.stack_a[0] != 4 && box.stack_a[2] != 5 && ft_order(box.stack_a, box.len_a) == 0)
-	//{
-	//	ft_swap(&box.stack_a[0], &box.stack_a[1], box.len_a);
-	//	write(1, "sa\n", 3);
-	//}
-	//lis(&box);
-	//push_chunk_b(&box);
-	//push_swap(&box);
-	//one_first(&box);
-	//free (box.stack_a);
-	//free (box.stack_b);
-	//free (box.lis);
 }

@@ -43,7 +43,7 @@ int	check_move(char *str)
 	return (0);
 }
 
-void	ft_correct(char *str, ps_struct *box)
+void	ft_correct(char *str, t_struct *box)
 {
 	if (check_move(str) == 0)
 		ft_error ();
@@ -65,7 +65,7 @@ void	ft_correct(char *str, ps_struct *box)
 		ft_swap(&box->stack_b[0], &box->stack_b[1], box->len_b);
 }
 
-void	ft_checker(ps_struct *box)
+void	ft_checker(t_struct *box)
 {
 	char	*str;
 
@@ -84,7 +84,7 @@ void	ft_checker(ps_struct *box)
 
 int	main(int argc, char *argv[])
 {
-	ps_struct	box;
+	t_struct	box;
 	int			flag;
 
 	if (argc <= 1)
@@ -107,10 +107,5 @@ int	main(int argc, char *argv[])
 	if (!fill_stack_a(&box, &argv[flag], flag))
 		ft_error();
 	ft_checker(&box);
-	if (ft_order(box.stack_a, box.len_a) == 1)
-		write (1, "OK\n", 3);
-	else
-		write (1, "KO\n", 3);
-	free (box.stack_a);
-	free (box.stack_b);
+	main_checker2(&box);
 }
