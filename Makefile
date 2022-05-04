@@ -22,7 +22,7 @@ $(NAME):
 		gcc $(FLG) $(SRC) -o $(NAME)
 
 bonus:
-		gcc -g $(FLG) $(SRC_CHECKER) -o $(CHECKER) -D BUFFER_SIZE=42
+		gcc $(FLG) $(SRC_CHECKER) -o $(CHECKER) -D BUFFER_SIZE=42
 
 all: 	bonus $(NAME)
 

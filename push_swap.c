@@ -55,6 +55,7 @@ void	push_swap(t_struct *box)
 			i++;
 		}
 		do_push_swap(min, box);
+		free (best);
 	}
 }
 
